@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head of the html file -->
+<head>
+    <% include ../../partials/title %>
+
+    <!-- Importing the main-style headers -->
+    <% include ../../partials/main-style %>
+
+    <link rel="stylesheet" href="assets/css/chosen_css/chosen.min.css">
+
+</head>
+
+<!-- Body of the html file -->
+<body>
+
+    <div id="wrapper">
+
+         <!-- Naivgation Bar: TOP -->
+        <% include ../../partials/navigation-ui %>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div id ="content-con" class="container">
+            <div class="row">
+
+                <!-- Sidenav and page content-->
+                    <% include ../../partials/sidenav-main %>
+
+                <br>
+
+                <!-- Main content of the page -->
+                <div id="content" class="col-xs-13 col-md-9">
+                    <h1>Search for Mentors</h1>
+                    <br>
+                    <p>Search by specialities!</p>
+                    <br>
+
+                        <div class="form-group col-md-6 col-sm-8 col-xs-12">
+                            <form>
+                                <select data-placeholder="Type to get started!" class="form-control chosen-select" multiple tabindex="6" id="selectInterest" value="lolol">
+                                </select>
+                            </form>
+
+                        </div><!-- End of form group-->
+
+                        <center><button id="searchInterest" class="btn">Submit</button></center>
+
+                        <br>
+                        <p>Search by username!</p>
+                        <div class="form-group col-md-6 col-sm-8 col-xs-12">
+                            <form>
+                                <input name ="username"></input>
+                            </form>
+
+                        </div><!-- End of form group-->
+
+                        <center><button id="searchUsername" class="btn">Submit</button></center>
+
+
+                    <br><br>
+                    <div id="result">
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <script src="javascript/admin/chosen.jquery.min.js"></script>
+    <script src="javascript/search-mentor.js"></script>
+
+
+</body>
+
+
+  <script src="assets/js/custom.js"></script>
+</html>

@@ -1,0 +1,78 @@
+                                    <table id="user-table">
+
+                                <!-- USERNAME COLUMN-->
+                                <tr>
+                                    <td>Username</td>
+                                    <td>
+                                        <% if (user.local) { %>
+                                                <%= user.local.username %>
+                                        <% } %>
+                                    </td>
+                                </tr>
+
+                                <!-- PASSWORD COLUMN-->
+                                <tr>
+                                    <td>Password</td>
+                                    <td>
+                                    </td>
+                                </tr>
+
+                                <!-- EMAIL COLUMN-->
+                                <tr>
+                                    <td>Email</td>
+                                    <td>
+                                        <% if (!user.third_party) { %>
+                                              <%= user.local.email %>
+                                        <% } else { %>
+                                              <%= user.facebook.email %>
+                                        <% } %>
+                                    </td>
+                                </tr>
+
+                                <!-- STUNUM COLUMN-->
+                                <tr>
+                                    <td>Student Number</td>
+                                    <td>
+                                        <% if (user.local) { %>
+                                                <%= user.local.stunum %>
+                                        <% } %>
+                                    </td>
+                                </tr>
+
+                                <!-- First Name COLUMN-->
+                                <tr>
+                                    <td>First Name</td>
+                                    <td>
+                                        <%= user.givenname %>
+                                    </td>
+                                </tr>
+
+                                <!-- Last Name COLUMN-->
+                                <tr>
+                                    <td>Last Name</td>
+                                    <td>
+                                        <%= user.familyname %>
+                                    </td>
+                                </tr>
+
+                                <!-- GENDER COLUMN-->
+                                <tr>
+
+                                    <td>Gender</td>
+                                    <td>
+
+                                          <%= user.gender %>
+                                    </td>
+                                </tr>
+
+                                <!-- BIRTH COLUMN-->
+                                <tr>
+                                    <td>Birthdate</td>
+                                    <td>
+                                        <% if (user.local) { %>
+                                                <%= user.local.birthday %>
+                                        <% } %>
+                                    </td>
+                                </tr>
+
+                            </table>

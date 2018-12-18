@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head of the html file -->
+<head>
+    <% include ../../partials/title %>
+
+    <!-- Importing the main-style headers -->
+    <% include ../../partials/main-style %>
+</head>
+
+<!-- Body of the html file -->
+<body>
+
+    <div id="wrapper">
+
+         <!-- Naivgation Bar: TOP -->
+        <% include ../../partials/navigation-ui %>
+
+        <br><br><br><br>
+
+        <!-- INPUT FIELD NAME NOTES: (IN ORDER)
+            mentor_academic (select options field)
+            mentor_interests (select options field)
+            mentor_field (input field)
+            mentor_cv (file input upload)
+            mentor_experience (textbox)
+            mentor_voluntary (textbox)
+            mentor_additionals (textbox)
+        -->
+
+        <div id ="content-con" class="container">
+            <div class="row">
+
+                <!-- Sidenav and page content-->
+
+                    <% include ../../partials/sidenav-main %>
+
+                <br>
+
+                <!-- Main content of the page -->
+                <div id="content" class="col-xs-13 col-md-9 mentor_form panel">
+
+
+                        <!--<div class="container panel" style="width:100%; height: 100%;">-->
+
+                            <h2 id="form-title" style="text-align: center;">Become a Mentor!</h2>
+
+                            <form action="/mentorapp" method="post">
+                                <div class="row">
+
+                                    <div class="col-bg-3 col-md-3 col-sm-1"></div>
+                                    <div class="col-bg-6 col-md-8 col-sm-10">
+
+                                        <span id="prompt-field">I want to become a mentor in </span><br>
+                                        <!--<button id="academic-button">Academic area</button>
+                                        <button id="interest-button">Interest area</button>-->
+
+                                        <!-- When user clicks on either of two buttons above, these two field divs will
+                                            be shown dynamically on page-->
+                                        <div id="academic-fieldok">
+                                            <span>Academic Specialty</span>
+
+                                                <select class="acd" id="academic-select" name="mentor_academic">
+                                                  <option value="Null"></option>
+                                                  <option value="Arts & Miscellaneous">Arts & Miscellaneous</option>
+                                                  <option value="Biotechnology & Environmental Sciences">Biotechnology & Environmental Sciences</option>
+                                                  <option value="Business and Office Administration">Business and Office Administration</option>
+                                                  <option value="Construction, Architecture & Interior Design">Construction, Architecture & Interior Design</option>
+                                                  <option value="Customer Service, Sales & Marketing">Customer Service, Sales & Marketing</option>
+                                                  <option value="Engineering">Engineering</option>
+                                                  <option value="Finance, Accounting, Banking & Insurance">Finance, Accounting, Banking & Insurance</option>
+                                                  <option value="Healthcare, Pharmacy & Laboratory">Healthcare, Pharmacy & Laboratory</option>
+                                                  <option value="Human Resources">Human Resources</option>
+                                                  <option value="Information Technologies">Information Technologies</option>
+                                                  <option value="Legal & Social Services">Legal & Social Services</option>
+                                                  <option value="Manufacturing & Logistics">Manufacturing & Logistics</option>
+                                                  <option value="Teaching, Daycare & Library">Teaching, Daycare & Library</option>
+                                              </select>
+
+                                        </div><!-- End of academic-field div-->
+
+                                        <div id="interest-fieldok">
+
+                                            <span>Interest Specialty</span>
+
+                                                <select class="inter" id="interest-select" name="mentor_interests">
+                                                    <option value="Null"></option>
+                                                  <option value="Soccer / Football">Soccer / Football</option>
+                                                  <option value="Cricket">Cricket</option>
+                                                  <option value="Basketball">Basketball</option>
+                                                  <option value="Baseball">Baseball</option>
+                                                  <option value="Volleyball">Volleyball</option>
+                                                  <option value="Tennis">Tennis</option>
+                                                  <option value="Field Hockey">Field Hockey</option>
+                                                  <option value="American Football">American Football</option>
+                                                  <option value="Table Tennis">Table Tennis</option>
+                                                  <option value="Ice Hockey">Ice Hockey</option>
+                                                  <option value="Golf">Golf</option>
+                                                  <option value="Rugby">Rugby</option>
+                                                  <option value="Badminton">Badminton</option>
+                                                  <option value="Boxing / Combat Sports">Boxing / Combat Sports</option>
+                                                  <option value="Dragon Boat Racing">Dragon Boat Racing</option>
+                                                  <option value="Gymnastics">Gymnastics</option>
+                                                  <option value="Handball">Handball</option>
+                                                  <option value="Bowling">Bowling</option>
+                                                  <option value="Swimming">Swimming</option>
+                                                </select>
+                                        </div><!-- ENd of interest-field div-->
+                                    </div><!-- End of col div-->
+
+                                    <br>
+                                    <br>
+
+                                    <div class="col-bg-3 col-md-3 col-sm-1"></div>
+                                </div><!-- End of first row div-->
+
+                                <div class="row">
+                                    <div class="col-bg-3 col-md-3 col-sm-1"></div>
+                                    <div class="col-bg-6 col-md-6 col-sm-10">
+                                        <div id="interest-field">
+                                            <span>Experience in Field</span>
+                                            <br>
+                                            <input id="experience" name="mentor_field" type="text" placeholder="Experience (in year)" pattern="[0-9]{1,3}" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-bg-3 col-md-3 col-sm-1"></div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-bg-3 col-md-3 col-sm-1"></div>
+                                    <div class="col-bg-6 col-md-6 col-sm-10">
+                                        <span>Upload CV</span><br>
+                                        <label class="inputfile">
+                                            <input id="upload-input" type="file" name="uploads[]" multiple="multiple"><br>
+                                        </label>
+                                    </div>
+                                    <div class="col-bg-3 col-md-3 col-sm-1"></div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-bg-3 col-md-3 col-sm-1"></div>
+                                    <div class="col-bg-6 col-md-6 col-sm-10">
+                                        <span>Working experience</span><br>
+                                        <textarea name="mentor_experience" id="working-ex" cols="40" rows="2" placeholder="Related working experience"></textarea>
+                                    </div>
+                                    <div class="col-bg-3 col-md-3 col-sm-1"></div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-bg-3 col-md-3 col-sm-1"></div>
+                                    <div class="col-bg-6 col-md-6 col-sm-10">
+                                        <span>Voluntary Information</span><br>
+                                        <textarea name="mentor_voluntary" id="voluntary-info" cols="40" rows="2" placeholder="Why become a mentor ?"></textarea>
+                                    </div>
+                                    <div class="col-bg-3 col-md-3 col-sm-1"></div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-bg-3 col-md-3 col-sm-1"></div>
+                                    <div class="col-bg-6 col-md-6 col-sm-10">
+                                        <span>Additional Note</span><br>
+                                        <textarea name="mentor_additionals" id="note" cols="40" rows="2" placeholder="Anything you want to say! :)"></textarea>
+                                    </div>
+                                    <div class="col-bg-3 col-md-3 col-sm-1"></div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-bg-3 col-md-3 col-sm-1"></div>
+                                    <div class="col-bg-6 col-md-6 col-sm-10">
+                                        <br>
+                                        <center><button id="submit-button">Submit</button></center>
+                                        <br>
+                                    </div>
+                                    <div class="col-bg-3 col-md-3 col-sm-1"></div>
+
+                                </div>
+                            </form>
+
+                    <!--</div>--><!-- END OF CONTENT-->
+
+
+
+
+                </div><!-- End of content div-->
+            </div><!-- End of row div-->
+        </div><!-- End of content-con div-->
+    </div><!-- End of wrapper div-->
+
+</body>
+<script src="jquery/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="assets/js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
+
+<script src="bootstrap3/js/bootstrap.js" type="text/javascript"></script>
+<script src="assets/js/gsdk-checkbox.js"></script>
+<script src="assets/js/gsdk-radio.js"></script>
+<script src="assets/js/gsdk-bootstrapswitch.js"></script>
+<script src="assets/js/custom.js"></script>
+<script src="javascript/mentor-signup.js"></script>
+<script src="assets/js/custom.js"></script>
+<script src="assets/js/upload.js"></script>
+</html>

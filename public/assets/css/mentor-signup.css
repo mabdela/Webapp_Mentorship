@@ -1,0 +1,110 @@
+.jumbotron {
+    background-image: url(../../assets/img/personal-mentor.jpg);
+    background-size: 100%;
+    min-height: 700px;
+    margin: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    overflow: auto;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+select {
+    width: 100%;
+    background-color: rgba(244, 244, 244, 0.81);
+    color: #727676;
+}
+
+#experience {
+    width: 100%;
+    padding-left: 10px;
+    border-radius: 8px;
+    background-color: rgba(244, 244, 244, 0.81);
+}
+
+textarea {
+    width: 100%;
+    padding-left: 10px;
+    border-radius: 8px;
+    border: none;
+    background-color: rgba(244, 244, 244, 0.81);
+}
+
+#upload-cv {
+    display: none;
+}
+
+label {
+    border: 2px white solid;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #f7f7f7;
+    background-color: rgba(196, 245, 229, 0.53);
+}
+
+label:hover {
+    cursor: pointer;
+    color: rgba(248, 248, 196, 0.82);
+    border: rgba(248, 248, 196, 0.82) 2px solid;
+}
+
+i {
+    background-color: rgba(244, 244, 244, 0);
+    width: 30px;
+}
+
+#upload-cv-text {
+    margin-left: 10px;
+    font-weight: normal;
+}
+
+.row div {
+    align-content: center;
+    color: rgba(182, 240, 222, 0.74);
+    font-weight: bolder;
+}
+
+.panel {
+    padding-top: 40px;
+    padding-bottom: 30px;
+    max-height: 690px;
+    background-color: rgba(170, 175, 175, 0.68);
+    overflow-y: scroll;
+}
+
+#form-title {
+    color: #c6c5c5;
+    font-family: sans-serif;
+}
+
+textarea {}
+
+#submit-button {
+    float: right;
+}
+
+button {
+    margin-left: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 15px;
+    color: #f7f7f7;
+    background-color: rgba(196, 245, 229, 0.53);
+    border-radius: 10px;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgba(161, 203, 189, 0.53);
+    color: rgba(248, 248, 196, 0.82);
+}

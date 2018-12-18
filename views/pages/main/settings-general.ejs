@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head of the html file -->
+<head>
+    <% include ../../partials/title %>
+
+    <!-- Importing the main-style headers -->
+    <% include ../../partials/main-style %>
+
+    <!-- Script for updating local user fields -->
+    <script src="assets/js/settings-general.js"></script>
+
+
+
+</head>
+
+<!-- Body of the html file -->
+<body>
+
+    <div id="wrapper">
+
+         <!-- Naivgation Bar: TOP -->
+        <% include ../../partials/navigation-ui %>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+        <div id ="content-con" class="container">
+            <div class="row row-offcanvas row-offcanvas-left">
+
+                <!-- Sidenav and page content-->
+                <% include ../../partials/sidenav-main %>
+
+                <br>
+
+                <!-- Main content of the page -->
+                <div id="content" class="col-xs-13 col-md-9">
+
+                    <h1 id="acc-settsh1">Account Settings</h1>
+
+                    <br>
+
+                    <center><p>Here are your current settings for your user profile!</p></center>
+
+                    <br>
+
+                    <!--  I: GENERAL ACCOUNT SETTINGS-->
+                    <div id="general-acc">
+                        <h2 class="acc-setts">General Account Settings</h2>
+                        <div id="general-content">
+                            <br>
+                            
+                            <form action="/general-change" method="post">
+                                
+                                <table id="user-table">
+                                    
+                                    <div class="form-group"></div>
+
+                                <!-- USERNAME COLUMN-->
+                                <tr>
+                                    <td>Username</td>
+                                    <td>
+                                        <div class="form-group">
+                                            <% if (user.local) { %>
+                                                <input class="gen" type="text" class="form-control" name="username_new" value="<%= user.local.username %>"><br>
+                                            <% } else { %>
+                                                <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                            <% } %>
+                                        
+                                        </div><!-- End of form-group div -->
+                                        
+                                    </td>
+                                </tr>
+
+                                <!-- PASSWORD COLUMN-->
+                                <tr>
+                                    
+                                    <td>Password</td>
+                                    <td>
+                                        <div class="form-group">
+                                        
+                                            <% if (user.local) { %>
+                                                <input class="gen" type="text" class="form-control" name="password_new" value="<%= user.local.password %>"><br>
+                                            <% } else { %>
+                                                <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                            <% } %>
+                                        
+                                        </div><!-- End of form-group div -->
+                                    </td>
+                                </tr>
+
+                                <!-- EMAIL COLUMN-->
+                                <tr>
+                                
+                                    <td>Email</td>
+                                    <td>
+                                        <div class="form-group">
+                                            <% if (user.local) { %>
+                                                <input class="gen" type="text" class="form-control" name="email_new" value="<%= user.local.email %>"><br>
+                                            <% } else { %>
+                                                <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                            <% } %>
+                                        </div><!-- End of form-group div -->
+                                    </td>
+                                </tr>
+
+                                <!-- STUNUM COLUMN-->
+                                <tr>
+            
+                                    <td>Student Number</td>
+                                    <td>
+                                        <div class="form-group">
+                                            <% if (user.local) { %>
+                                                <input class="gen" type="text" class="form-control" name="stunum_new" value="<%= user.local.stunum %>"><br>
+                                            <% } else { %>
+                                                <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                            <% } %>
+                                        </div><!-- End of form-group div -->
+                                    </td>
+                                </tr>
+
+                                <!-- First Name COLUMN-->
+                                <tr>
+                                    
+                                    <td>First Name</td>
+                                    <td>
+                                        <div class="form-group">
+                                            <% if (user.local) { %>
+                                                <input class="gen" type="text" class="form-control" name="givenname_new" value="<%= user.givenname %>"><br>
+                                            <% } else { %>
+                                                <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                            <% } %>
+                                        </div><!-- End of form-group div -->
+                                    </td>
+                                </tr>
+
+                                <!-- Last Name COLUMN-->
+                                <tr>
+                                    
+                                    <td>Last Name</td>
+                                    <td>
+                                        <div class="form-group">
+                                            <% if (user.local) { %>
+                                                <input class="gen" type="text" class="form-control" name="familyname_new" value="<%= user.familyname %>"><br>
+                                            <% } else { %>
+                                                <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                            <% } %>
+                                        </div><!-- End of form-group div -->
+                                    </td>
+                                </tr>                                
+                                    
+                                <tr>
+                                    
+                                    <td>Gender</td>
+                                    <td>
+                                        <div class="form-group">
+                                            <% if (user.local) { %>
+                                                <input class="gen" type="text" class="form-control" name="gender_new" value="<%= user.gender %>"><br>
+                                            <% } else { %>
+                                                <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                            <% } %>
+                                        </div><!-- End of form-group div -->
+                                    </td>
+                                </tr>
+
+                                <!-- BIRTH COLUMN-->
+                                <tr>
+                                    
+                                    <td>Birthdate</td>
+                                    <td>
+                                        <div class="form-group">
+                                            <% if (user.local) { %>
+                                                <input class="gen" type="text" class="form-control" name="birthday_new" value="<%= user.local.birthday %>"><br>
+                                            <% } else { %>
+                                                <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                            <% } %>
+                                        </div><!-- End of form-group div -->
+                                    </td>
+                                </tr>
+
+                            </table>
+                                
+                            <br><br>
+                                
+                            <!-- Form submit button-->    
+                            <center><button type="submit" class="btn btn-warning btn-lg">Save Changes</button></center>
+                                
+                             
+                            
+                        </form><!-- End of form-->
+                            
+                            <br>
+                            <br>
+
+                        </div><!-- End of user about content div -->
+
+                    </div><!-- End of general account settings div -->
+
+                    <br>
+
+                    <!-- II: INTERESTS SETTINGS -->
+                    <div id="interests-acc">
+                        <h2 class="acc-setts">My Interests Settings</h2>
+                        <div id="interests-content">
+
+                            <br>
+
+                            <!-- TODO: IMPLEMENT INTERESTS CHANGES -->
+
+                            <% if (user.local) { %>
+                                    <%= user.specialty %>
+                            <% } else { %>
+                                <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                            <% } %>
+
+                            <br>
+                            <br>
+
+                        </div><!-- End of interests content div -->
+
+                    </div><!-- End of interests settings div -->
+
+                    <br>
+
+                    <!--  III: AVATAR SETTINGS -->
+                    <div id="avatar">
+                        <h2 class="acc-setts">Avatar Settings</h2>
+                        <div id="avatar-content">
+
+                            <p>This is currently you!</p>
+
+                            <div id="image" class="img-thumbnail">
+                                <% if (user.local) { %>
+                                        <img class="img-thumbnail" src="<%= user.profilePicture %>">
+                                <% } else { %>
+                                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                <% } %>
+                            </div>
+
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+
+                        </div><!-- End of avatar content div -->
+
+                    </div><!-- End of avatar div -->
+
+                    <br>
+
+                    <!-- IV: ABOUT SETTINGS -->
+                    <div id="about-settings">
+                        <h2 class="acc-setts">About Settings</h2>
+                        <div id="aboutcont-settings">
+
+                            <br>
+
+                            <% if (user) { %>
+                                    <%= user.about %>
+                            <% } else { %>
+                                <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                            <% } %>
+
+                            <br><br>
+
+                        </div><!-- End of aboutcont-settings -->
+                    </div><!-- End of about-settings -->
+
+
+                </div><!-- END OF CONTENT DIV-->
+
+            </div>
+        </div>
+    </div>
+
+</body>
+    <script src="assets/js/custom.js"></script>      
+</html>

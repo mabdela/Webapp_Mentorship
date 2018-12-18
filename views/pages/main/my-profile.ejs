@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head of the html file -->
+<head>
+    <% include ../../partials/title %>
+
+    <!-- Importing the main-style headers -->
+    <% include ../../partials/main-style %>
+
+</head>
+
+<!-- Body of the html file -->
+<body>
+
+    <div id="wrapper">
+
+         <!-- Naivgation Bar: TOP -->
+        <% include ../../partials/navigation-ui %>
+
+        <br><br><br><br>
+
+        <div id ="content-con" class="container">
+            <div class="row row-offcanvas row-offcanvas-left">
+
+                <!-- Sidenav and page content-->
+                <% include ../../partials/sidenav-main %>
+
+                <br>
+
+                <!-- Main content of the page -->
+                <div id="content" class="col-xs-13 col-md-9">
+
+                    <!-- Page Username header-->
+                    <br>
+
+                    <img width="150px" height="150px" style="float: left;" src="<%= user.profilePicture %>">
+
+                    <!-- Fetch individual -->
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    
+                    <!-- Fetch username from db -->
+                    <% if (!user.third_party) { %>
+                            <h1 style="display:inline-block;"> <%= " " + user.local.username %></h1>
+                    <% } else { %>
+                            <h1 style="display:inline-block;"><%= user.givenname %></h1>
+                    <% } %>
+
+                    <br><br>
+
+                    <!--  About section -->
+                    <div id="about">
+                        <h1 id="user-about">User Details</h1>
+                        <div id="about-content">
+
+                            <div class="col-xs-4 col-md-2">
+                                <p>
+                                <strong>Name</strong>:<br>
+                                <strong>Gender</strong>:<br>
+                                <strong>Birthday</strong>:<br>
+                                <strong>Email</strong>:<br>
+                                <strong>Status</strong>:<br>
+                                </p>
+                            </div>
+
+                            <div class="col-xs-14 col-md-10">
+                                <% if (!user.third_party) { %>
+                                    <p>
+                                        <%= user.givenname + " " + user.familyname %><br>
+                                        <%= user.gender %><br>
+                                        <%= user.local.birthday %><br>
+                                        <%= user.local.email %><br>
+                                        <%= user.role %><br>
+                                    </p>
+
+                                <% } else { %>
+                                  <p>
+                                      <%= user.givenname + " " + user.familyname %><br>
+                                      <%= user.gender %><br>
+                                      <%= user.facebook.email %><br>
+                                      <%= user.role %><br>
+                                  </p>
+                                <% } %>
+
+                            </div>
+
+                            <br><br>
+                            <br><br>
+                            <br>
+
+                        </div><!-- End of user about content div -->
+
+                    </div><!-- End of user about div -->
+
+                    <br>
+
+                    <!--  About section -->
+                    <div id="interests">
+                        <h1 id="user-interests">Interests</h1>
+                        <div id="interests-content">
+                            <br>
+
+
+                            <%= user.specialty %>
+
+                            <br>
+                            <br>
+
+
+                        </div><!-- End of user interests content div -->
+
+                    </div><!-- End of user interests div -->
+
+                    <br>
+
+                    <!--  About section -->
+                    <div id="blog">
+                        <h1 id="user-blog">About</h1>
+                        <div id="blog-content">
+
+                            <br>
+
+                            <!-- Fetching content from user schema-->
+                                    <%= user.about %>
+
+
+                            <br><br>
+
+                            <!-- Implement this-->
+
+                        </div><!-- End of user interests content div -->
+
+                    </div><!-- End of user interests div -->
+
+                    <br>
+
+                </div> <!-- ENd of main content div-->
+
+            </div><!-- End of row div-->
+        </div>
+    </div>
+
+</body>
+    <script src="assets/js/custom.js"></script>
+</html>

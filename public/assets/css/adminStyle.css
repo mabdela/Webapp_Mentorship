@@ -1,0 +1,229 @@
+.fonts{
+
+    font-family: 'Dancing Script', cursive;
+    /*font-family: 'Tangerine', cursive;
+    font-family: 'Pinyon Script', cursive;
+    font-family: 'Alex Brush', cursive;
+    font-family: 'Pacifico', cursive;*/
+
+}
+
+
+/* Remove the navbar's default margin-bottom and rounded borders */
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+.col {
+    padding-right:7px;
+    padding-left:7px;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {height: 100%}
+
+/* Set gray background color and 100% height */
+.sidenav {
+    padding-top: 20px;
+    background:#E4E4E4;
+    height: 100%;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+    background-color: #323232;
+    color: whitesmoke;
+    padding: 15px;
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+    .sidenav {
+        height: auto;
+        padding: 15px;
+    }
+    .row.content {height:auto;}
+}
+
+.well{
+    background: #DADADA;
+}
+
+div.well li{
+    list-style-type: none;
+    text-align: left;
+    margin: 1px;
+}
+div.sidenav li{
+    list-style-type: none;
+    text-align: left;
+}
+
+
+div li a.menu{
+    display:block;
+    padding:10px;
+}
+div li a.menu:link{
+    text-decoration: none;
+}
+div li a.menu:hover{
+    background:#C6C6C6;
+    color:white;
+}
+/*div li a.active{
+    background:#C6C6C6;
+    color:white;
+}*/
+
+
+body{
+    background: #323232;
+}
+.content{
+    background: whitesmoke;
+    padding-top: 70px;
+}
+.admin {
+    border-radius: 50%;
+    width:20px;
+}
+.main-content{
+    padding: 2% 4%;
+}
+
+#acceptAll{
+    margin:0 0 2% 0;
+    padding:4px 8px;
+    border:1px solid #000000;
+    border-radius: 4px;
+    text-align: center;
+    font-size:18px;
+    background-color: #323232;
+    color:#BCBCBC;
+    margin:2px;
+}
+#acceptAll:hover{
+    background: #000000;
+    color:whitesmoke;
+}
+.circleBtn{
+    border-radius:50%;
+}
+
+#myNavbar li{
+    margin:0px;
+    padding:0px;
+    list-style-type: none;
+}
+
+
+/*Changing the padding of the menus on the navbar depending on the position*/
+
+@media only screen and (max-width:1010px){
+
+    .nav > li > a, .nav > .navbar-form {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        margin-right: 0 !important;
+    }
+}
+
+@media only screen and (max-width:960px){
+
+    .nav > li > a, .nav > .navbar-form {
+        padding-left: 6px !important;
+        padding-right: 6px !important;
+        margin-right: 0 !important;
+    }
+}
+
+@media only screen and (max-width:820px){
+
+    .nav > li > a, .nav > .navbar-form {
+        padding-left: 2px !important;
+        padding-right: 2px !important;
+        margin-right: 0 !important;
+    }
+}
+
+@media only screen and (max-width:790px){
+
+    .nav > li > a, .nav > .navbar-form {
+        padding-left: 1px !important;
+        padding-right: 1px !important;
+        margin-right: 0 !important;
+    }
+}
+
+/*Change the background color of the search input*/
+.navbar-form input[type=text] {
+    background-color: black;
+    color: white;
+}
+
+/*Styling for the mentor request notify badge*/
+.badge-notify{
+    background:red;
+    position:relative;
+    top: -10px;
+    left: -6px;
+    padding: 2px;
+    margin: 0px;
+}
+/*---style for the autocomplete----*/
+.ui-widget-content {
+    background: #2b2b2b;
+    color: #c6c6c6;
+}
+.ui-autocomplete {
+    z-index: 10000 !important;
+}
+.ui-state-active {
+    background: black !important;
+
+}
+
+/*-----coloring error message---*/
+.success{
+    color:green;
+}
+.wrong{
+    color:red;
+}
+/*Styling for accept request or reject request buttons*/
+.btn-circle {
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+}
+
+/*change text color*/
+a.customColor{
+    color: #2a62bc;
+
+}
+/*The font obtained from google*/
+.mentorshipApplication{
+    font-family: 'Farsan', cursive;
+
+    /*font-family: 'Economica', sans-serif;
+    font-family: 'Old Standard TT', serif;
+    font-family: 'Katibeh', cursive;*/
+}
+
+div>label.field{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+
+
+

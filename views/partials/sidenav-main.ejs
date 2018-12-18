@@ -1,0 +1,32 @@
+    <div id="left-menu" class="col-xs-5 col-md-3 sidebar-offcanvas">
+            <!-- Glowing "MentorRock" header -->
+            <br>
+            <h1 id="title">Mentor</h1><h1 id="title2">Rock</h1>
+            <br>
+
+            <!-- Sidenav for the user -->
+              <nav id="sidebar" class="navbar navbar-default navbar-fixed-side">
+                <!-- normal collapsable navbar markup -->
+                <ul id="sidenav-buttons" class="nav navbar-nav">
+
+                    <!-- User Mentee/Mentor Page Links-->
+                    <li><a href="/profile"><span class="glyphicon glyphicon-home"></span> Home</a></li><br>
+                    <li><a href="/myprofile"><span class="glyphicon glyphicon-user"></span> My Profile</a></li><br>
+                    <li><a href="/accsettings"><span class="glyphicon glyphicon-cog"></span> Account Settings</a></li><br>
+                    <li><a href="/chatslist"><span class="glyphicon glyphicon-road"></span> Chatbox</a></li><br>
+                    <li><a href="/contacts"><span class="glyphicon glyphicon-star"></span> Contacts</a></li><br>
+
+                    <% if (user.role == "mentee") { %>
+                        <li><a href="/searchmentor"><span class="glyphicon glyphicon-search"></span> Search for Mentors</a></li><br>
+                        <li><a href="/mentorapp"><span class="glyphicon glyphicon-pencil"></span> Mentor Application</a></li><br>
+                    <% } else { %>
+                        <li><a href="/mentorpost"><span class="glyphicon glyphicon-pencil"></span> Mentor Post Meeting</a></li><br>
+                    <% } %>
+
+
+
+                </ul>
+
+              </nav>
+            <br>
+    </div><!-- End of left menu div -->

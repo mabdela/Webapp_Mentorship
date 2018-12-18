@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head of the html file -->
+<head>
+    <% include ../../partials/title %>
+
+    <!-- Importing the main-style headers -->
+    <% include ../../partials/main-style %>
+    <!-- The styling for select chosen -->
+    <link rel="stylesheet" href="assets/css/chosen_css/chosen.min.css">
+</head>
+
+<!-- Body of the html file -->
+<body>
+
+    <div id="wrapper">
+
+         <!-- Naivgation Bar: TOP -->
+        <% include ../../partials/navigation-ui %>
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+        <div id ="content-con" class="container">
+            <div class="row row-offcanvas row-offcanvas-left">
+
+                <!-- Sidenav and page content-->
+                <% include ../../partials/sidenav-main %>
+
+                <br>
+
+                <!-- Main content of the page -->
+                <div id="content" class="col-xs-13 col-md-9">
+
+                    <h1 id="acc-settsh1">Account Settings</h1>
+
+                    <br>
+
+                    <center><p>Here are your current settings for your user profile!</p></center>
+
+                    <br>
+
+                    <!--  I: GENERAL ACCOUNT SETTINGS-->
+                    <div id="general-acc">
+                        <h2 class="acc-setts">General Account Settings</h2>
+                        <div id="general-content">
+                            <br>
+
+                            <% include ../../partials/general-table %>
+
+                            <br>
+
+                            <!-- SHOULD ONLY BE ABLE TO CHANGE "interests" -->
+
+                            <br>
+
+                        </div><!-- End of user about content div -->
+
+                    </div><!-- End of general account settings div -->
+
+                    <br>
+
+                    <!-- II: INTEREST SETTINGS-->
+                    <div id="interests-acc">
+                        <h2 class="acc-setts">My Interests Settings</h2>
+                        <div id="interests-content">
+
+                            <br>
+
+                            <!-- INTEREST CHANGES AS A POST ACTION-->
+                            <div class="container-fluid">
+                                <div class="form-group col-md-6 col-sm-8 col-xs-12">
+                                    <form>
+                                        <select data-placeholder="EG: Swimming, Programming" class="form-control chosen-select" multiple tabindex="6" id="selectInterest">
+                                        </select>
+                                    </form>
+
+                                </div><!-- End of form group-->
+                                <div class="row col-sm-4 col-xs-12">
+                                    <a href="/accsettings" role="button" class="btn btn-warning btn-lg" id="saveInterest">Save Changes</a>
+                                </div>
+                            </div>
+
+                                <!-- Form submit button-->
+
+
+
+                            <br>
+
+                        </div><!-- End of interests content div -->
+
+                    </div><!-- End of interests settings div -->
+
+                    <br>
+
+                    <!--  III: AVATAR SETTINGS-->
+                    <div id="avatar">
+                        <h2 class="acc-setts">Avatar Settings</h2>
+                        <div id="avatar-content">
+
+                            <p>This is currently you!</p>
+
+                            <div id="image" class="img-thumbnail">
+                            
+                                <% if (user.local) { %>
+                                        <img class="img-thumbnail" src="<%= user.profilePicture %>">
+                                <% } else { %>
+                                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                <% } %>
+                            
+                            </div>
+
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+
+                            <!-- SHOULD ONLY BE ABLE TO CHANGE "INTERESTS" -->
+
+                        </div><!-- End of avatar content div -->
+
+                    </div><!-- End of avatar div -->
+
+                    <br>
+
+                    <!-- IV: ABOUT SETTINGS -->
+                    <div id="about-settings">
+                        <h2 class="acc-setts">About Settings</h2>
+                        <div id="aboutcont-settings">
+
+                            <br>
+
+                            <% if (user) { %>
+                                    <%= user.about %>
+                            <% } else { %>
+                                <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                            <% } %>
+
+                            <br><br>
+
+                            <!-- SHOULD ONLY BE ABLE TO CHANGE "INTERESTS" -->
+
+                        </div><!-- End of aboutcont-settings -->
+                    </div><!-- End of about-settings -->
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="javascript/admin/chosen.jquery.min.js"></script>
+<script>
+    var userId="<%- user._id %>";
+
+
+    var interest ="<%- user.specialty %>";
+    var newinterest;
+    if (interest.indexOf(',') == -1) {
+        newinterest=interest;
+    }else{
+        newinterest=interest.split(",");
+    }
+
+
+    $(function () {
+
+//Send ajax request to obtain the list of specialities
+        var findSpeciality=function () {
+            $.ajax({
+                url:'/speciality',
+                Type:'GET',
+                dataType:'json',
+                success:function (data) {
+
+                    $("#selectInterest").append(printSelect(data));
+                    $("#selectInterest").chosen({ width: '100%' });
+                    chosenSelectSetting();
+                },
+                error:function () {
+                    throw error;
+                }
+
+            });
+        };
+        function printSelect(data) {
+            var content ="<option  value='"+"'></option>" +
+                    "<optgroup label='Academics'>";
+            for(var i=0; i<data.speciality.academics.length; i++){
+                content+="<option>"+data.speciality.academics[i]+"</option>";
+
+            }
+            content +="</optgroup>" +
+                    "<optgroup label='Extracurricular Activities'>";
+            for(var j=0; j<data.speciality.interests.length; j++){
+                content+="<option>"+data.speciality.interests[j]+"</option>";
+            }
+            content +="</optgroup>";
+
+            return content;
+
+        }
+        findSpeciality();
+
+        //pertaining to the chosen select
+        function chosenSelectSetting() {
+            var config = {
+                '.chosen-select'           : {},
+                '.chosen-select-deselect'  : {allow_single_deselect:true},
+                '.chosen-select-no-single' : {disable_search_threshold:10},
+                '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+                '.chosen-select-width'     : {width:"95%"}
+            };
+
+            for (var selector in config) {
+                $(selector).chosen(config[selector]);
+            }
+            $("#selectInterest").val(newinterest);
+            $('#selectInterest').trigger('chosen:updated');
+
+        }
+        $("#saveInterest").click(function () {
+            var interestData=$("#selectInterest").val();
+            console.log(interestData);
+            var formatted={};
+            formatted.specialty=[];
+            for (var i=0; i<interestData.length; i++){
+
+                formatted.specialty.push(interestData[i]);
+            }
+
+
+            $.post('/interests-change?id='+userId, formatted,  function(data) {
+                console.log(data);
+
+            }).fail(function(){
+                console.log("There was an error");
+            });
+        });
+
+    });
+
+
+</script>
+
+
+</body>
+    <script src="assets/js/custom.js"></script>
+
+</html>

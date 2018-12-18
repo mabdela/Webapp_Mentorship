@@ -1,0 +1,358 @@
+/* From contacts.css */
+#mentee-list {
+    display: none;
+}
+
+.jumbotron {
+    background-image: url(../../assets/img/personal-mentor-blur.jpg) ;
+    background-size: 100%;
+    height: 760px;
+    margin: 0;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    overflow: auto;
+    padding-left: : 15px;
+    padding-right: 15px;
+}
+
+#contact-title {
+    color: #c7cccc;
+}
+
+.owl-carousel {
+    margin-left: 5%;
+}
+
+.carousel-item {
+    margin: 5px;
+    padding: 4px 7px;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 3px;
+    height: 200px;
+    width: 120px;
+    background: rgba(194, 242, 238, 0.68);
+    color: white;
+}
+
+.avatar {
+    height: 100px;
+    border-radius: 4px;
+    margin-top: 5%;
+}
+
+.chat-button {
+    color: white;
+    font-size: 14px;
+    background-color: rgba(235, 189, 66, 0.94);
+    height: auto;
+    border-radius: 8px;
+    border-style: dotted 1px;
+    float: right;
+}
+
+#FULL-NAV {
+    background-color: black;
+}
+
+/* ===================================================== */
+
+/* The main components of the user-mentee UI document */
+html,body {
+  height:100%;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding-top: 00px;
+  background-color: white;
+}
+
+html {
+    position: fixed;
+}
+
+body {
+    background-image: url("../img/cover_blur.png");
+     background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.container .row .col-md-6 .col-sm-4 {
+  height: 100vh;
+  overflow: auto;
+}
+
+.row {
+    height: 100%;
+    overflow: auto;
+}
+
+/*.left-menu {
+    text-align: center;
+    align-content: center;
+    height: 95vh;
+    overflow-y: hidden;
+}*/
+
+#sidebar {
+    /*height: 80vh;*/
+    height: 67%;
+    position: fixed;
+    overflow-y: auto;
+}
+
+#sidenav-buttons > li {
+    margin-bottom: -5%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.mentor_form {
+    line-height: 300%;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+#content {
+
+    border-radius: 15px;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    align-content: center;
+    background-color: white;
+    height: 81vh;
+    /*height: 70%;*/
+    overflow-y: auto;
+
+    /*float:left;
+    width:100%;
+    background:#eee;*/
+    border: solid #555;
+}
+
+/* ===================================================== */
+/* Entities within rows/divs/ etc */
+#sidenav-buttons.li {
+    text-align: center;
+}
+
+#title2 {
+    color:  #b3b3ff;
+    text-shadow: 0 0 5px rgba(179, 132, 255, 1), 0 0 10px  #b3b3ff,
+             0 0 20px  #b3b3ff, 0 0 30px  #b3b3ff,
+             0 0 40px  #b3b3ff;
+
+}
+
+#title {
+    color: #D0F8FF;
+    text-shadow: 0 0 5px #A5F1FF, 0 0 10px #A5F1FF,
+             0 0 20px #ff6c4f, 0 0 30px #A5F1FF,
+             0 0 40px #A5F1FF;
+    float: left;
+}
+
+#mentee {
+    font-style: italic;
+}
+
+/* ===================================================== */
+
+/* User Profile CSS (my-profile.html) */
+#image {
+    width: 150px;
+    height: 150px;
+    background-color: black;
+
+    float:left;
+    margin-right: 10px;
+}
+
+#about, #interests, #blog {
+    background-color: grey;
+    border: solid lightgray;
+    border-radius: 5px;
+    padding: 0px;
+}
+
+#about-content, #interests-content, #blog-content {
+    background-image: url(../../assets/img/personal-mentor-blur.jpg);
+    color: white;
+}
+
+#user-about, #user-interests, #user-blog {
+    font-size: 22px;
+    text-align: center;
+}
+
+#blog-content {
+    align-content: center;
+    text-align: center;
+}
+
+/* ===================================================== */
+/* Buttons for search-mentor.html */
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+/* Buttons: in the order in which they appear on the page*/
+#academics {
+    background-color:  royalblue;
+    width: 200px;
+}
+
+#interests-butt {
+    background-color: green;
+    width: 200px;
+}
+
+#mentors-butt {
+    background-color:  lightblue;
+    align-content: center;
+    text-align: center;
+    width: 200px;
+}
+
+#academics-box, #interests-box, ul.pagination {
+    display: none;
+}
+
+.mentors {
+    color: black;
+}
+
+.patt-one {
+    background-color: white;
+    text-align: center;
+}
+
+.patt-two {
+    background-color: azure;
+    text-align: center;
+}
+
+#academic-table, #interests-table {
+    border: double black;
+    align-content: center;
+}
+
+tr, td {
+    border: dotted black;
+        padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+
+/* ===================================================== */
+
+/* Account Settings CSS (acc-settings).html) */
+#avatar, #general-acc, #interests-acc, #about-settings {
+    background-color: grey;
+    border: solid lightgray;
+    border-radius: 5px;
+}
+
+.acc-setts {
+    text-align: center;
+}
+
+#acc-settsh1 {
+    text-align: center;
+}
+
+#general-content, #interests-content, #aboutcont-settings {
+    background-image: url(../../assets/img/personal-mentor-blur.jpg);
+    color: white;
+    align-content: center;
+    text-align: center;
+}
+
+#avatar-content {
+    background-image: url(../../assets/img/personal-mentor-blur.jpg);
+    color: white;
+    align-content: left;
+    left: 50%;
+}
+
+#avatar-content {
+    align-content: center;
+}
+
+#user-table {
+    border-collapse: collapse;
+    background-color: transparent;
+    align-content: center;
+    text-align: center;
+    left: 5%;
+    width: 100%;
+}
+
+#user-table.tr, #user-table.td {
+    border: 1px solid black;
+    align-content: center;
+    text-align: center;
+}
+
+#about-text {
+    color: black;
+}
+
+#profilePic-in {
+    background-image: url(../../assets/img/personal-mentor-blur.jpg);
+    width: 60%;
+}
+/* ===================================================== */
+
+/* Account Settings CSS (settings-general.html) */
+
+.gen-field {
+    color: black;
+    width: 100%;
+}
+
+/* ===================================================== */
+
+#sidebar.sidenav-buttons {
+  width: 95%;
+}
+#sidebar li {
+  border:0 #f2f2f2 solid;
+  border-bottom-width:1px;
+}
+
+input {
+    color: black;
+    width: 100%;
+}
+
+tr {
+  width: 100%;
+}
+
+.SEARCH, .btn.btn-primary {
+    text-align: center;
+    white-space: normal;
+    width: 100%;
+}
+
+#secret {
+    display: none;
+}

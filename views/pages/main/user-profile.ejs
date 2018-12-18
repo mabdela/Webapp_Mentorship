@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head of the html file -->
+<head>
+    <% include ../../partials/title %>
+
+    <!-- Importing the main-style headers -->
+    <% include ../../partials/main-style %>
+
+</head>
+
+<!-- Body of the html file -->
+<body>
+
+    <div id="wrapper">
+
+         <!-- Naivgation Bar: TOP -->
+        <% include ../../partials/navigation-ui %>
+
+        <br><br><br><br>
+
+        <div id ="content-con" class="container">
+            <div class="row row-offcanvas row-offcanvas-left">
+
+                <!-- Sidenav and page content-->
+                <% include ../../partials/sidenav-main %>
+
+                <br>
+
+                <!-- Main content of the page -->
+                <div id="content" class="col-xs-13 col-md-9">
+
+                        <!-- Page Username header-->
+                        <br>
+                        <div id="image" >
+                            <% if (other_user) { %>
+
+                                <img width="150px" height="150px" style="float: left;" src="<%= other_user.profilePicture %>">
+
+                                <!-- Fetch individual -->
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+
+                            <% } else { %>
+                                <h1>other_user is null for some reason!</h1>
+                            <% } %>
+                        </div>
+
+                    <br>
+                    <br>
+                    <br>
+
+                    <!-- Fetch individual -->
+
+                    <div id="submit-contact"  >
+
+
+                        <% if (other_user) { %>
+                               <h1 style="float: left;"><%- other_user.local.username %> <button id="sub"  name="<%=other_user._id %>" class="btn btn-default">Add to Contacts</button></h1>
+
+                        <% } else { %>
+                            <h1>other_user is null for some reason!</h1>
+                        <% } %>
+
+
+                        <div id="secret">
+                            <input type="text" class="form-control" value="<%= other_user.profilePicture %>" name="img" placeholder="http://">
+                            <input type="text" class="form-control" value="<%= other_user.givenname + " " + other_user.familyname %>" name="name" placeholder="First Last">
+                            <input type="text" class="form-control" value="<%= other_user._id %>" name="id" placeholder="id">
+                        </div><!-- End of secret div-->
+
+                    </div><!-- END OF FORM -->
+
+                    <br><br>
+                    <br><br><br>
+
+                    <!--  About section -->
+                    <div id="about">
+                        <h1 id="user-about">User Details</h1>
+                        <div id="about-content">
+
+                            <div class="col-xs-4 col-md-2">
+                                <p>
+                                <strong>Name</strong>:<br>
+                                <strong>Gender</strong>:<br>
+                                <strong>Birthday</strong>:<br>
+                                <strong>Email</strong>:<br>
+                                <strong>Status</strong>:<br>
+                                </p>
+                            </div>
+
+                            <div class="col-xs-14 col-md-10">
+
+                                <% if (other_user) { %>
+                                <p><%- other_user.givenname + " " + other_user.familyname %><br>
+                                <%- other_user.gender %><br>
+                                <%- other_user.local.birthday %><br>
+                                <%- other_user.local.email %><br>
+                                <%- other_user.role %></p><br>
+
+                                <% } else { %>
+                                    <h1>other_user is null for some reason!</h1>
+                                <% } %>
+
+
+                            </div>
+
+                            <br><br>
+                            <br><br>
+                            <br>
+
+                        </div><!-- End of user about content div -->
+
+                    </div><!-- End of user about div -->
+
+                    <br>
+
+                    <!--  About section -->
+                    <div id="interests">
+                        <h1 id="user-interests">Interests</h1>
+                        <div id="interests-content">
+                            <br>
+                                <% if (other_user) { %>
+                                    <%- other_user.specialty %>
+                                <% } else { %>
+                                    <h1>User is null for some reason!</h1>
+                                <% } %>
+                            <br>
+                            <br>
+
+
+                        </div><!-- End of user interests content div -->
+
+                    </div><!-- End of user interests div -->
+
+                    <br>
+
+                    <!--  About section -->
+                    <div id="blog">
+                        <h1 id="user-blog">About</h1>
+                        <div id="blog-content">
+
+                            <br>
+
+                            <% if (other_user) { %>
+                                <!-- Fetching content from user schema-->
+                                <%- other_user.about %>
+                            <% } else { %>
+                                <h1>User is null for some reason!</h1>
+                            <% } %>
+
+
+                            <br><br>
+
+                            <!-- Implement this-->
+
+                        </div><!-- End of user interests content div -->
+
+                    </div><!-- End of user interests div -->
+
+                    <br>
+
+                </div> <!-- ENd of main content div-->
+
+            </div><!-- End of row div-->
+        </div>
+    </div>
+
+</body>
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/menteeview.js"></script>
+
+    <script>
+
+        $('#sub').on('click', function(event) {
+            var clicked_id = $(this).attr("name");
+            $.ajax({
+              url: '/addmentors',
+              type: "POST",
+              data: {id : clicked_id},
+              success: function(response){
+                  alert(response);
+              },
+              error: function (request, status, error) {
+                  alert(request.responseText);
+              }
+            });
+
+
+      });
+
+    </script>
+
+
+</html>

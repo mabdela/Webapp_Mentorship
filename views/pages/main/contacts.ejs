@@ -1,0 +1,77 @@
+<html>
+
+<head>
+    <!-- Importing the main-style headers -->
+    <% include ../../partials/contact-header %>
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Naivgation Bar: TOP -->
+        <% include ../../partials/navigation-ui %>
+
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div id="content-con" class="contain">
+                <div class="row">
+                    <!-- Sidenav and page content-->
+
+                    <% include ../../partials/sidenav-main %>
+
+                        <br>
+
+                        <!-- Main content of the page -->
+
+                        <!--<div id="content" class="jumbotron col-xs-13 col-md-9">-->
+                        <div id="content" class="jumbotron col-xs-13 col-md-9">
+
+                            <div>
+                                <div class="container">
+                                    <h2 id="contact-title">My Contacts</h2>
+                                    <span id="hidden-my-id"><%=myid%></span>
+                                </div>
+                            </div>
+
+                            <!--  user-carousel start  -->
+                            <div id="friend-list" class="owl-carousel">
+                                <% for(var i=0; i<friend_names.length; i++) { %>
+                                    <div class="carousel-item">
+                                        <a href="/userprofile?id=<%= friend_ids[i] %>">
+                                       <img class="avatar" src="<%= friend_pics[i] %>" alt="">
+                                        <span id="friend-name"><%= friend_names[i] %></span><br>
+                                        <span class="relation"><%= relationships[i] %></span>
+                                        </a>
+                                        <button class="unfriend" id="<%=friend_ids[i] %>">Unfriend<span class="hidden-roomid"><%=rooms[i] %></span></button>
+
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <!--  user-carousel end  -->
+
+                            <footer>
+                            </footer>
+                        </div>
+                        <!-- End of jumbotron-->
+
+                </div>
+                <!-- End of row div-->
+            </div>
+            <!-- ENd of content-con div-->
+            <div id="snackbar">snackbar text</div>
+    </div>
+    <!-- End of wrapper-->
+
+    <!-- Needed to load content of my-contats -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="owlcarousel/owl.carousel.min.js"></script>
+    <script src="javascript/contacts.js"></script>
+</body>
+<script src="assets/js/custom.js"></script>
+
+</html>

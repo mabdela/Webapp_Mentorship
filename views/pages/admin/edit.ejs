@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Importing the main-style headers -->
+    <% include ../../partials/admin-style %>
+
+
+</head>
+
+<body>
+
+<!-- Importing the the navigation bar -->
+<% include ../../partials/admin-sidenav %>
+<div class = "container-fluid text-center">
+    <div class="row content">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10 text-left main-content" >
+            <div class="searchResults">
+
+            </div>
+
+            <div class = "col-sm-9">
+                <div class="row">
+                    <div class="form-group row">
+                        <label class="col-xs-2 col-form-label">Username</label>
+                        <div class="col-xs-10" id=<%- user._id %>>
+                            <input class="form-control" type="text" id="username" value=<%- user.local.username%> >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-xs-2 col-form-label">Email</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" type="email" placeholder="abc@mail.com" id="email" value=<%- user.local.email%>>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-xs-2 col-form-label">Student Number</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" type="number" id="stunum" value=<%- user.local.stunum %>>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-xs-2 col-form-label" >First Name</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" type="text" id="givenname" value= <%- user.givenname %> >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label  class="col-xs-2 col-form-label">Last Name</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" type="text" name="lname" id="familyname" value=<%- user.familyname%> >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label  class="col-xs-2 col-form-label">Gender</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" type="text" placeholder="Male or Female?" id="gender" value=<%- user.gender%> >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-xs-2 col-form-label">Birth Date</label>
+                        <div class="col-xs-10">
+                            <input class="form-control" type="text" placeholder="YYYY-MM-DD" id="birthday" value=<%- user.local.birthday %>>
+                        </div>
+                    </div>
+                    <div class="form-group row" id="lastItem">
+                        <label class="col-xs-2 col-form-label">Interest Fields</label>
+                        <div class="col-xs-10">
+                            <form >
+                                <select data-placeholder="EG: Swimming, Programming" style="width:100%" class="form-control chosen-select" multiple tabindex="6" id="selectInterest">
+
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+                    <button  class="btn btn-primary btn-md changepwd" id=<%- user.local.password %>>Change Password</button>
+                    <br/>
+
+                    <center><a href = "/admin" class = "btn btn-warning" role = "button" id="updateBtn">Update</a> </center>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+
+</div>
+<% include ../../partials/adminfooter %>
+
+<script src="javascript/admin/edituser.js"></script>
+<script src="javascript/admin/commonview.js"></script>
+<script src="javascript/admin/chosen.jquery.min.js"></script>
+
+<script>
+    //Global  variable
+
+    var interest ="<%- user.specialty %>";
+    var newinterest;
+    if (interest.indexOf(',') == -1) {
+        newinterest=interest;
+    }else{
+        newinterest=interest.split(",");
+    }
+
+</script>
+</body>
+
+</html>

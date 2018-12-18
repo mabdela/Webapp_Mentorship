@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- ACC-SETTINGS.EJS
+
+    NOTE: ONLY ADD IN THE INCLUDE ACC-SETTINGS.EJS FILE TO IMPLEMENT
+          AVATAR CHANGES IN THIS FILE
+
+-->
+
+<!-- Head of the html file -->
+<head>
+    <% include ../../partials/title %>
+
+    <!-- Importing the main-style headers -->
+    <% include ../../partials/main-style %>
+</head>
+
+<!-- Body of the html file -->
+<body>
+
+    <div id="wrapper">
+
+         <!-- Naivgation Bar: TOP -->
+        <% include ../../partials/navigation-ui %>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div id ="content-con" class="container">
+            <div class="row row-offcanvas row-offcanvas-left">
+
+                <!-- Sidenav and page content-->
+                <% include ../../partials/sidenav-main %>
+
+                <br>
+
+                <!-- Main content of the page -->
+                <div id="content" class="col-xs-13 col-md-9">
+
+                    <h1 id="acc-settsh1">Account Settings</h1>
+
+                    <br>
+                    <center><p>Here are your current settings for your user profile!</p></center>
+                    <br>
+
+                    <!--  General Account section -->
+                    <div id="general-acc">
+                        <h2 class="acc-setts">General Account Settings</h2>
+                        <div id="general-content">
+                            <br>
+
+                            <div class="row">
+                                <div class="col-xs-13 col-md-9">
+                                        <% include ../../partials/general-table %>
+
+
+                                </div>
+                            </div>
+
+
+                            <br>
+
+                            <!-- TODO: IMPLEMENT THIS
+                                    Change user settings -->
+                            <a href="/general-change" class="btn btn-warning btn-lg">Change Settings</a>
+
+                            <br>
+                            <br>
+
+                        </div><!-- End of user about content div -->
+
+                    </div><!-- End of general account settings div -->
+
+                    <br>
+
+                    <!-- INTERESTS: Remove, Add, Change Existing Interests -->
+                    <div id="interests-acc">
+                        <h2 class="acc-setts">My Interests Settings</h2>
+                        <div id="interests-content">
+
+                            <br>
+
+                            <!-- TODO: IMPLEMENT INTERESTS CHANGES -->
+
+
+                            <%= user.specialty %>
+
+                            <br>
+                            <br>
+
+                            <!-- TODO: IMPLEMENT THIS
+                                    Change user settings -->
+                            <a href="/interests-change" class="btn btn-warning btn-lg">Change Interests</a>
+
+                            <br>
+                            <br>
+                        </div><!-- End of interests content div -->
+
+                    </div><!-- End of interests settings div -->
+
+                    <br>
+
+                    <!--  Avatar  section -->
+                    <div id="avatar">
+                        <h2 class="acc-setts">Avatar Settings</h2>
+                        <div id="avatar-content">
+
+                            <form action="/accsettings" method="post">
+                                
+                                <br>
+                                <p>This is currently you!</p>
+                                <img width="150px" height="150px" style="float: left;" src="<%= user.profilePicture %>">
+
+                                <p>Please add in your avatar link:</p>
+
+                                <div class="form-group">
+
+                                    <input type="text" class="form-control" name="profilePic_new" placeholder="http://myimage-url.ca" style="width: 60%;">
+
+                                    <p style="font-style: italic;">(Image will be resized to 150px by 150px)</p>
+
+                                </div><!-- End of form-group div-->
+
+                                <br>
+
+                                <!-- Form submit button-->
+                                <center><button type="submit" class="btn btn-warning btn-lg">Save Changes</button></center>
+
+
+
+                            </form><!-- End of avatar form -->
+
+                            <br>
+
+                        </div><!-- End of avatar content div -->
+
+                    </div><!-- End of avatar div -->
+
+                    <br>
+
+                    <div id="about-settings">
+                        <h2 class="acc-setts">About Settings</h2>
+                        <div id="aboutcont-settings">
+
+                            <br>
+
+                            <% if (user) { %>
+                                    <%= user.about %>
+                            <% } else { %>
+                                <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                            <% } %>
+
+                            <br><br>
+
+                            <!-- TODO: IMPLEMENT THIS
+                                    Change user settings -->
+                            <a href="/about-change" class="btn btn-warning btn-lg">Change Settings</a>
+
+                            <br>
+                            <br>
+
+                        </div><!-- End of aboutcont-settings -->
+                    </div><!-- End of about-settings -->
+
+                </div><!-- End of content div s-->
+
+            </div>
+        </div>
+    </div>
+
+</body>
+    <script src="assets/js/custom.js"></script>
+</html>

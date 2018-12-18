@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head of the html file -->
+<head>
+    <% include ../../partials/title %>
+
+    <!-- Importing the main-style headers -->
+    <% include ../../partials/main-style %>
+
+</head>
+
+<!-- Body of the html file -->
+<body>
+
+    <div id="wrapper">
+
+         <!-- Naivgation Bar: TOP -->
+        <% include ../../partials/navigation-ui %>
+
+        <br><br><br><br>
+
+        <div id ="content-con" class="container">
+            <div class="row row-offcanvas row-offcanvas-left">
+
+
+                <!-- Sidenav and page content-->
+                <% include ../../partials/sidenav-main %>
+
+                <br>
+
+                <!-- Main content of the page -->
+                <div id="content" class="col-xs-13 col-md-9">
+
+
+                    <!-- Whatever content goes here -->
+
+                    <% if (user) { %>
+                        <center><h1>Welcome <%= user.givenname %></h1> <br></center>
+                    <% } %>
+
+                    <!-- ===============================================================  -->
+
+                    <div id="newsfeed" >
+                        <h2 align="center">Newsfeed</h2>
+                        <div class="row">
+                        <div id="news-content" class="col-lg-4 col-lg-push-2">
+	                        <h4 style="color: rgba(93, 28, 233, 0.86)">Meeting Schedule Confirm</h4>
+                            <p>You mentor XXX have scheduled a meeting this Friday 8:00pm 11/11/2016, </p>
+                            <button class="btn btn-success">Confirm</button>
+                            <button class="btn btn-danger">Cancel</button>
+                        </div>
+
+                        <div id="news-content" class="col-lg-4 col-lg-push-2">
+	                        <h4 style="color: rgba(93, 28, 233, 0.86)">Become Mentor Request denied</h4>
+                            <p>You become a mentor request have been denied by admin.......</p>
+                            <button class="btn btn-warning">Click to see full message</button>
+                        </div>
+                        </div>
+                        <div class="space-30"></div>
+                        <div class="row">
+                        <div id="news-content" class="col-lg-4 col-lg-push-2">
+	                        <h4 style="color: rgba(93, 28, 233, 0.86)">You mentor XXX have sent you a message</h4>
+                            <p>Hi, my dear, I just viewed your resume, and it's pretty good. And that's my suggestion to make it even better.......</p>
+                            <button class="btn  btn-info">Click to see full message</button>
+                        </div>
+
+                        <div id="news-content" class="col-lg-4 col-lg-push-2">
+	                        <h4 style="color: rgba(93, 28, 233, 0.86)">You mentor XXX have sent you a message</h4>
+                            <p>Hi, my dear, I just viewed your resume, and it's pretty good. And that's my suggestion to make it even better.......</p>
+                            <button class="btn btn-info">Click to see full message</button>
+                        </div>
+                        </div>
+                        </div>
+                    </div><!-- ENd of Newsfeed -->
+
+
+                </div><!-- End of content col-md-9 div-->
+
+            </div><!-- End of row div-->
+        </div> <!-- ENd of container div-->
+    </div><!-- End of wrapper-->
+
+</body>
+
+</html>

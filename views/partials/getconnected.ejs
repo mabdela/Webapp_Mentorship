@@ -1,0 +1,141 @@
+
+<% if (userlist) { %>
+    <div class="container tim-container" style="max-width:100%; padding-top:50px">
+      <h2 class="text-center">Get Conneted To <br>Your Mentors</h2>
+      <div class="tim-title">
+         <h3 class="text-center">Our Populor Mentors</h3>
+     </div>
+      <div id="carousel">
+          <!-- MPORTANT - This carousel can have a special class for a smooth transition "gsdk-transition". Since javascript cannot be overwritten, if you want to use it, you can use the bootstrap.js or bootstrap.min.js from the GSDKit or you can open your bootstrap.js file, search for "emulateTransitionEnd(600)" and change it with "emulateTransitionEnd(1200)"
+          -->
+          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+              <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox" >
+              <div class="item active">
+                <div id="images" style="max-width:800px; padding-left: 75px; margin:0 auto;">
+                    <br>
+                    <div class="row">
+                        <% if (userlist[0]) { %>
+                        <div class=" col-md-4 col-sm-6">
+                           <h4><p><%= userlist[0].specialty%></p></h4>
+                           <img src="<%= userlist[0].profilePicture%>" alt="Circle Image" class="img-circle">
+                           <h4><%= userlist[0].givenname%> <%= userlist[0].familyname%></h4>
+                           <p><%= userlist[0].about%></p>
+                           <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+                        </div>
+                        <% } %>
+                        <% if (userlist[1]) { %>
+                        <div class=" col-md-4 col-sm-6">
+                           <h4><p><%= userlist[1].specialty%></p></h4>
+                           <img src="<%= userlist[1].profilePicture%>" alt="Circle Image" class="img-circle">
+                           <h4><%= userlist[1].givenname%> <%= userlist[1].familyname%></h4>
+                           <p><%= userlist[1].about%></p>
+                           <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+                        </div>
+                        <% } %>
+                        <% if (userlist[2]) { %>
+                        <div class=" col-md-4 col-sm-6">
+                           <h4><p><%= userlist[2].specialty%></p></h4>
+                           <img src="<%= userlist[2].profilePicture%>" alt="Circle Image" class="img-circle">
+                           <h4><%= userlist[2].givenname%> <%= userlist[2].familyname%></h4>
+                           <p><%= userlist[2].about%></p>
+                           <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+                        </div>
+                        <% } %>
+                        <br><br>
+                    </div>
+                 </div>
+              </div>
+              <div class="item">
+                 <div id="images" style="max-width:800px; padding-left: 75px; margin:0 auto;">
+                     <br>
+                     <div class="row">
+                       <% if (userlist[3]) { %>
+                       <div class=" col-md-4 col-sm-6">
+                          <h4><p><%= userlist[3].specialty%></p></h4>
+                          <img src="<%= userlist[3].profilePicture%>" alt="Circle Image" class="img-circle">
+                          <h4><%= userlist[3].givenname%> <%= userlist[3].familyname%></h4>
+                          <p><%= userlist[3].about%></p>
+                          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+                       </div>
+                       <% } %>
+                       <% if (userlist[4]) { %>
+                       <div class=" col-md-4 col-sm-6">
+                          <h4><p><%= userlist[4].specialty%></p></h4>
+                          <img src="<%= userlist[4].profilePicture%>" alt="Circle Image" class="img-circle">
+                          <h4><%= userlist[4].givenname%> <%= userlist[4].familyname%></h4>
+                          <p><%= userlist[4].about%></p>
+                          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+                       </div>
+                       <% } %>
+                       <% if (userlist[5]) { %>
+                       <div class=" col-md-4 col-sm-6">
+                          <h4><p><%= userlist[5].specialty%></p></h4>
+                          <img src="<%= userlist[5].profilePicture%>" alt="Circle Image" class="img-circle">
+                          <h4><%= userlist[5].givenname%> <%= userlist[5].familyname%></h4>
+                          <p><%= userlist[5].about%></p>
+                          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+                       </div>
+                       <% } %>
+                       <br><br>
+                     </div>
+                 </div>
+              </div>
+              <div class="item">
+                <div id="images" style="max-width:800px; padding-left: 75px; margin:0 auto;">
+                     <br>
+                     <div class="row">
+                       <% if (userlist[6]) { %>
+                       <div class=" col-md-4 col-sm-6">
+                          <h4><p><%= userlist[6].specialty%></p></h4>
+                          <img src="<%= userlist[6].profilePicture%>" alt="Circle Image" class="img-circle">
+                          <h4><%= userlist[6].givenname%> <%= userlist[6].familyname%></h4>
+                          <p><%= userlist[6].about%></p>
+                          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+                       </div>
+                       <% } %>
+                       <% if (userlist[7]) { %>
+                       <div class=" col-md-4 col-sm-6">
+                          <h4><p><%= userlist[7].specialty%></p></h4>
+                          <img src="<%= userlist[7].profilePicture%>" alt="Circle Image" class="img-circle">
+                          <h4><%= userlist[7].givenname%> <%= userlist[7].familyname%></h4>
+                          <p><%= userlist[7].about%></p>
+                          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+                       </div>
+                       <% } %>
+                       <% if (userlist[8]) { %>
+                       <div class=" col-md-4 col-sm-6">
+                          <h4><p><%= userlist[8].specialty%></p></h4>
+                          <img src="<%= userlist[8].profilePicture%>" alt="Circle Image" class="img-circle">
+                          <h4><%= userlist[8].givenname%> <%= userlist[8].familyname%></h4>
+                          <p><%= userlist[8].about%></p>
+                          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+                       </div>
+                       <% } %>
+                       <br><br><br>
+                     </div>
+                 </div>
+              </div>
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+              <p class="fa fa-angle-left"></p>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+              <span class="fa fa-angle-right"></span>
+            </a>
+          </div>
+      </div> <!-- end carousel -->
+
+        <!--     end extras -->
+    </div>
+
+<% } %>

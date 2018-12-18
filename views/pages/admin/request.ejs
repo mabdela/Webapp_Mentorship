@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Importing the main-style headers -->
+    <% include ../../partials/admin-style %>
+    <link href="https://fonts.googleapis.com/css?family=Economica|Farsan|Katibeh|Old+Standard+TT" rel="stylesheet">
+
+
+</head>
+<body>
+
+
+<!-- Importing the the navigation bar -->
+<% include ../../partials/admin-sidenav %>
+<div class = "container-fluid text-center">
+    <div class="row content">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10 text-left main-content" >
+            <div class="searchResults">
+
+            </div>
+
+
+            <!-- Main content of the page -->
+            <div class="col-xs-10 jumbotron mentorshipApplication">
+
+
+                <!--<div class="container panel" style="width:100%; height: 100%;">-->
+
+                <h2 id="form-title" style="text-align: center;">Application to become a mentor</h2>
+                    <div class="row">
+                            <div >
+                                <label class="field">Full Name:&nbsp;&nbsp;</label>
+                                <a id="name"><%- data.givenname %> &nbsp; <%- data.familyname %></a>
+                            </div>
+                            <div >
+                                <label class="field">Academic Specialty:&nbsp;&nbsp;</label>
+                                <a id="academics"><%- data.academics %></a>
+                            </div>
+
+                            <div>
+                                <label class="field">Interest Specialty:&nbsp;&nbsp;</label>
+                                <a id="interest"><%- data.interests %></a>
+                            </div>
+                        <div >
+                            <label class="field">Experience in Field:&nbsp;&nbsp;</label>
+                            <a id="yearOfExp"><%- data.experience_field %> </a>
+
+                        </div>
+                        <div>
+                                <label class="field">Working experience</label><br>
+                                <p id="workExp"><%- data.experience_work %></p>
+                        </div>
+                        <div>
+                                <label class="field">Voluntary Information</label><br>
+                                <p><%- data.voluntary %></p>
+                        </div>
+                        <div>
+                            <label class="field">Additional Note</label><br>
+                            <p id="additionalInfo"><%- data.additionals %></p>
+                        </div>
+						
+                        <div>
+                            <center>
+							    
+                                <a href = "/mentorrequest" class = "btn btn-success btn-circle" role = "button" onclick="acceptRequest(this)" id="success">
+                                    <span class="glyphicon glyphicon-ok"></span>
+                                </a>
+                                <a href = "/mentorrequest" class = "btn btn-default btn-circle" role = "button" onclick="rejectRequest(this)">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </a>
+                            </center>
+                        </div>
+
+                        </div>
+
+
+                    </div><!-- End of first row div-->
+
+
+
+
+            </div>
+
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+
+</div>
+
+<% include ../../partials/adminfooter %>
+<script src="javascript/admin/mentorrequestview.js"></script>
+<script src="javascript/admin/commonview.js"></script>
+
+<script>
+    var userId='<%-  data.userID %>';
+    console.log(userId);
+
+    $(function(){
+        $("#success").before('<a href = "/download?id='+userId+'" class = "btn btn-primary btn-circle" role = "button">' +
+                '<span class="glyphicon glyphicon-download-alt"></span>' +
+                '</a> &nbsp;');
+
+    });
+  </script>
+
+
+
+</body>
+</html>

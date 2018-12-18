@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Importing the main-style headers -->
+    <% include ../../partials/admin-style %>
+
+
+</head>
+<body>
+
+
+<!-- Importing the main-style headers -->
+<% include ../../partials/admin-sidenav %>
+
+<div class = "container-fluid text-center">
+    <div class="row content">
+        <div class="col-sm-1"></div>
+
+
+
+        <!-- Main COntent of the Page -->
+        <div class="col-sm-10 text-left main-content" >
+            <div class="feedback">
+
+            </div>
+            <div class="searchResults">
+
+            </div>
+
+            <div class="addUserView">
+                <div class="row">
+                    <div class = "col-sm-9">
+                        <div class="row">
+                            <div class="form-group row">
+                                <label class="col-xs-2 col-form-label">Username</label>
+                                <div class="col-xs-10">
+                                    <input class="form-control" type="text" id="username"  required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-xs-2 col-form-label">Email</label>
+                                <div class="col-xs-10">
+                                    <input class="form-control" type="email" placeholder="abc@mail.com" id="email" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-xs-2 col-form-label">Password</label>
+                                <div class="col-xs-10">
+                                    <input class="form-control" type="password" id="password" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-xs-2 col-form-label">Student Number</label>
+                                <div class="col-xs-10">
+                                    <input class="form-control" type="number" id="stunum" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-xs-2 col-form-label" >First Name</label>
+                                <div class="col-xs-10">
+                                    <input class="form-control" type="text" id="givenname" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label  class="col-xs-2 col-form-label">Last Name</label>
+                                <div class="col-xs-10">
+                                    <input class="form-control" type="text" name="lname" id="familyname" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label  class="col-xs-2 col-form-label">Gender</label>
+                                <div class="col-xs-10">
+                                    <input class="form-control" type="text" placeholder="Male or Female?" id="gender" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-xs-2 col-form-label">Birth Date</label>
+                                <div class="col-xs-10">
+                                    <input class="form-control" type="text" placeholder="YYYY-MM-DD" id="birthday" required>
+                                </div>
+                            </div>
+                            <div class="form-group row" id="lastItem">
+                                <label class="col-xs-2 col-form-label">Profile Picture</label>
+                                <div class="col-xs-10">
+                                    <input type="text" class="form-control" name="profilePicture" placeholder="http://myimage-url.ca" id="profilePicture" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row" id="lastItem">
+                                <label class="col-xs-2 col-form-label">Interest Fields</label>
+                                <div class="col-xs-10">
+                                    <form >
+                                        <select data-placeholder="EG: Swimming, Programming" style="width:100%" class="form-control chosen-select" multiple tabindex="6" id="selectInterest" required>
+
+                                        </select>
+                                    </form>
+                                </div>
+                            </div>
+                            <center><button  class="btn btn-primary btn-md" id="addNewUser">Add User</button></center>
+                        </div>
+
+                    </div>
+
+
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+        </div><!-- ENd of main content of the page-->
+        <div class="col-sm-1"></div>
+
+
+    </div> <!-- End of row content -->
+</div> <!-- End of container-fluid -->
+
+
+
+<% include ../../partials/adminfooter %>
+
+<script src="javascript/admin/commonview.js"></script>
+<script src="javascript/admin/adduserview.js"></script>
+<script src="javascript/admin/chosen.jquery.min.js"></script>
+<script>
+$(function () {
+    //Send ajax request to obtain the list of specialities
+    var findSpeciality=function () {
+        $.ajax({
+            url:'/speciality',
+            Type:'GET',
+            dataType:'json',
+            success:function (data) {
+
+                $("#selectInterest").append(printSelect(data));
+                $("#selectInterest").chosen({ width: '100%' });
+                chosenSelectSetting();
+            },
+            error:function () {
+                throw error;
+            }
+
+        });
+    };
+    //Print the list of options for the select
+    function printSelect(data) {
+        var content ="<option  value='"+"'></option>" +
+                "<optgroup label='Academics'>";
+        for(var i=0; i<data.speciality.academics.length; i++){
+            content+="<option>"+data.speciality.academics[i]+"</option>";
+
+        }
+        content +="</optgroup>" +
+                "<optgroup label='Extracurricular Activities'>";
+        for(var j=0; j<data.speciality.interests.length; j++){
+            content+="<option>"+data.speciality.interests[j]+"</option>";
+        }
+        content +="</optgroup>";
+
+        return content;
+
+    }
+    findSpeciality();
+
+    //pertaining to the chosen select
+    function chosenSelectSetting() {
+        var config = {
+            '.chosen-select'           : {},
+            '.chosen-select-deselect'  : {allow_single_deselect:true},
+            '.chosen-select-no-single' : {disable_search_threshold:10},
+            '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+            '.chosen-select-width'     : {width:"95%"}
+        };
+
+        for (var selector in config) {
+            $(selector).chosen(config[selector]);
+        }
+
+    }
+
+});
+
+
+
+</script>
+
+</body>
+</html>
+

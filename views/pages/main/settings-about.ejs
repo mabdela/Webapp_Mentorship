@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- ACC-SETTINGS.EJS
+
+    NOTE: ONLY ADD IN THE INCLUDE ACC-SETTINGS.EJS FILE TO IMPLEMENT
+          ABOUT USER CHANGES IN THIS FILE
+
+-->
+
+<!-- Head of the html file -->
+<head>
+    <% include ../../partials/title %>
+
+    <!-- Importing the main-style headers -->
+    <% include ../../partials/main-style %>
+
+</head>
+
+<!-- Body of the html file -->
+<body>
+
+    <div id="wrapper">
+
+         <!-- Naivgation Bar: TOP -->
+        <% include ../../partials/navigation-ui %>
+
+        <br><br><br><br>
+
+        <div id ="content-con" class="container">
+            <div class="row row-offcanvas row-offcanvas-left">
+
+                <!-- Sidenav and page content-->
+                <% include ../../partials/sidenav-main %>
+
+                <br>
+
+                <!-- Main content of the page -->
+                <div id="content" class="col-xs-13 col-md-9">
+
+                    <h1 id="acc-settsh1">Account Settings</h1>
+
+                    <br>
+
+                    <center><p>Here are your current settings for your user profile!</p></center>
+
+                    <br>
+
+
+                    <!--  General Account section -->
+                    <div id="general-acc">
+                        <h2 class="acc-setts">General Account Settings</h2>
+                        <div id="general-content">
+                            <br>
+
+                            <div class="row">
+                                <div class="col-xs-13 col-md-9">
+
+                                    <% include ../../partials/general-table %>
+
+                                </div>
+                            </div>
+
+
+                            <br>
+
+
+                            <!-- SHOULD ONLY BE ABLE TO CHANGE "ABOUT" -->
+
+                        </div><!-- End of user about content div -->
+
+                    </div><!-- End of general account settings div -->
+
+                    <br>
+
+                    <!-- INTERESTS: Remove, Add, Change Existing Interests -->
+                    <div id="interests-acc">
+                        <h2 class="acc-setts">My Interests Settings</h2>
+                        <div id="interests-content">
+
+                            <br>
+
+                            <% if (user.local) { %>
+                                    <%= user.specialty %>
+                            <% } else { %>
+                                <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                            <% } %>
+
+                            <br>
+                            <br>
+
+                            <!-- SHOULD ONLY BE ABLE TO CHANGE "ABOUT" -->
+
+                        </div><!-- End of interests content div -->
+
+                    </div><!-- End of interests settings div -->
+
+                    <br>
+
+                    <!--  Avatar  section -->
+                    <div id="avatar">
+                        <h2 class="acc-setts">Avatar Settings</h2>
+                        <div id="avatar-content">
+
+                            <p>This is currently you!</p>
+
+                            <div id="image" class="img-thumbnail">
+                                <% if (user.local) { %>
+                                        <img class="img-thumbnail" src="<%= user.profilePicture %>">
+                                <% } else { %>
+                                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                <% } %>
+                            
+                            </div>
+
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+
+                            <!-- SHOULD ONLY BE ABLE TO CHANGE "ABOUT" -->
+
+                        </div><!-- End of avatar content div -->
+
+                    </div><!-- End of avatar div -->
+
+                    <br>
+
+                    <div id="about-settings">
+                        <h2 class="acc-setts">About Settings</h2>
+                        <div id="aboutcont-settings">
+
+                            <br>
+
+                            <form action="/about-change" method="post">
+                                
+                                <div class="form-group">
+                                
+                                    <% if (user) { %>
+                                        <textarea id="about-text" class="form-group" name="about_new" rows="4" cols="80"><%= user.about %></textarea>
+                                    <% } else { %>
+                                        <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                                    <% } %>
+
+                                                                    <!-- Form submit button-->    
+                                    <center><button id="saveAbout" type="submit" class="btn btn-warning btn-lg">Save Changes</button></center>
+                                
+                                </div><!-- End of form-group div -->
+                                
+                                <br>
+                                
+                                        
+                            </form><!-- END OF ABOUT FORM -->
+
+                        </div> <!-- End of aboutcont-settings-->
+                    </div><!-- ENd of about-settings div -->
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+       
+    
+
+</body>
+  <script src="assets/js/custom.js"></script>        
+</html>
