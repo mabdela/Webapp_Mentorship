@@ -4,7 +4,7 @@
 Introduction and About:
 ---------------------
 
-### This project was completed by a team of four students Mubarek Abdela (myself), Flora Lee, Wen Zhao and Tallis Shih-Ying Jeng.  Detailed information about the project is included [Here](https://github.com/mubekeab/Webapp_Mentorship/blob/master/proposal/proposal.pdf). 
+### This project was completed by a team of four (Mubarek Abdela (myself), Flora Lee, Wen Zhao and Tallis Shih-Ying Jeng).  Detailed information about the project is included [Here](https://github.com/mubekeab/Webapp_Mentorship/blob/master/proposal/proposal.pdf). 
 
 Currently there are many online workshops for specific topics or fields, but all of them are just one session for one course, and instructors have few interactions with students when the course is over. (Suppose that Piazza is a prime example of this) However, it is commonly the case that students have confusions and questions which they could seek advice from mentors, such as choosing a major or doing job searches. We believe such issue could be better addressed by building up long-term mentorship relations between people based on either a certain academic field or extracurricular interests. Therefore, we create this web app to achieve such goal.
 	
